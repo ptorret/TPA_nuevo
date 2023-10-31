@@ -12,16 +12,18 @@ public class moveObject {
     private int targetX;
     private int targetY;
     private int speed = 2;
+    private Enemy demon = new Enemy(10,"DAS");
 
     public moveObject() {
         frame = new JFrame("Walk to Mouse Click");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
-
         canvas = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                g.setColor(Color.MAGENTA);
+                g.fillRect(demon.posX,demon.posY, demon.size, demon.size);
                 g.setColor(Color.BLUE);
                 g.fillRect(x, y, 20, 20);
             }
@@ -58,6 +60,7 @@ public class moveObject {
                 SwingUtilities.invokeLater(() -> canvas.repaint());
 
                 try {
+                    //if()
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
