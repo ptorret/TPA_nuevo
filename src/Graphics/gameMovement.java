@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class gameMovement {
     private JFrame frame;
+    private battleEnviorment battleFrame = new battleEnviorment();
     private JPanel canvas;
     private Player player;
     private Enemy enemy;
@@ -19,13 +20,20 @@ public class gameMovement {
     private int targetY;
     private final int speed = 1;
 
-    public gameMovement(Player player, Enemy dragon) {
-        this.player = player;
-        this.enemy = dragon;
+    private JButton buttonFight;
+
+    public gameMovement(Player player_, Enemy enemy_) {
+        this.player = player_;
+        this.enemy = enemy_;
 
         frame = new JFrame("TPA");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
+
+        buttonFight = new JButton("fight");
+        buttonFight.setBounds(enemy.getPosX(),enemy.getPosY(),100,20);
+        buttonFight.setVisible(false);
+        frame.add(buttonFight);
 
         canvas = new JPanel() {
             @Override
@@ -62,6 +70,8 @@ public class gameMovement {
         return false;
     }
     private void moveTowardsTarget() {
+        buttonFight.setVisible(false);
+
         Thread movementThread = new Thread(() -> {
             while (player.getPosX() != targetX || player.getPosY() != targetY) {
                 if (player.getPosX() < targetX) {
@@ -85,15 +95,17 @@ public class gameMovement {
                 }
             }
             if(colicion()){
-
-                System.out.println("!!!");
-                Scanner sc = new Scanner(System.in);
-                String yesORno = sc.nextLine();
-                if(yesORno == "yes"){
-                    frame.setVisible(false);
-                    battleEnviorment battle = new battleEnviorment(enemy,player);
+                try {
+                    System.out.println("!!!");
+                    buttonFight.setVisible(true);
+                    buttonFight.addActionListener(e ->{
+                        battleFrame.setVisible(true);
+                        buttonFight.setVisible(false);
+                    });
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-
             }
         });
         movementThread.start();
