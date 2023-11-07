@@ -99,10 +99,11 @@ public class gameMovement {
                     System.out.println("!!!");
                     buttonFight.setVisible(true);
                     buttonFight.addActionListener(e ->{
+                        battleFrame.recreateBattle(player,enemy);
                         battleFrame.setVisible(true);
                         buttonFight.setVisible(false);
                     });
-                    Thread.sleep(10000);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -6,6 +6,7 @@ public class Player {
     private String warriorClass = "Guerreo";
     private int health = 100;
     private int damageAttack = 20;
+    private int specialAttack = 40;
 
     private int sizeXplayer = 30;
     private int sizeYplayer = 30;
@@ -62,5 +63,17 @@ public class Player {
     }
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public String getWarriorClass() {
+        return warriorClass;
+    }
+
+    public int getSpecialAttack() {
+        return specialAttack;
+    }
+
+    public void setSpecialAttack(int specialAttack) {
+        this.specialAttack = specialAttack;
     }
 }

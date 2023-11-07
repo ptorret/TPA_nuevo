@@ -32,4 +32,16 @@ public class Enemy {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getDamageAttack() {
+        return damageAttack;
+    }
 }
