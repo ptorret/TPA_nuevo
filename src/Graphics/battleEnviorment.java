@@ -117,7 +117,7 @@ public class battleEnviorment extends JFrame{
 
         attackSpecial.addActionListener(e->{
             if(specialAvailable){
-                ATTACK(informationPlayer,informationEnemy,"normal");
+                ATTACK(informationPlayer,informationEnemy,"special");
                 specialAvailable = false;
                 attackSpecial.setVisible(false);
             }

@@ -88,7 +88,7 @@ public class gameMovement {
                 SwingUtilities.invokeLater(() -> canvas.repaint());
 
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(1);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -103,7 +103,7 @@ public class gameMovement {
                         battleFrame.setVisible(true);
                         buttonFight.setVisible(false);
                     });
-                    Thread.sleep(10);
+                    Thread.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
