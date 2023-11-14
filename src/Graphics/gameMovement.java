@@ -113,10 +113,13 @@ public class gameMovement {
     }
 
     public static void main(String[] args) {
+        /*
         Player player = new Player("jugador");
         Dragon dragon = new Dragon();
         SwingUtilities.invokeLater(()->{
             gameMovement myGameMovement = new gameMovement(player,dragon);
         });
+        */
+        principalMenu menu = new principalMenu();
     }
 }

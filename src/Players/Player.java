@@ -3,7 +3,7 @@ package Players;
 public class Player {
     private String nombre;
     private int xp=0;
-    private String warriorClass = "Guerreo";
+    private String warriorClass;
     private int health = 100;
     private int damageAttack = 20;
     private int specialAttack = 40;
@@ -21,6 +21,10 @@ public class Player {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setXp(int xp) {
