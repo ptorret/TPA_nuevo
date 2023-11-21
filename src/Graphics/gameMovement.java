@@ -61,10 +61,10 @@ public class gameMovement {
     }
 
     public boolean colicion(){
-        if(     player.getPosX() < enemy.getPosX()+enemy.getSizeXenemy() &&
-                player.getPosX() > enemy.getPosX() &&
+        if(     player.getPosX() < enemy.getPosX() + enemy.getSizeXenemy() &&
+                player.getPosX() > enemy.getPosX() - enemy.getSizeYenemy() &&
                 player.getPosY() < enemy.getPosY() + enemy.getSizeYenemy() &&
-                player.getPosY() > enemy.getPosY()    ){
+                player.getPosY() > enemy.getPosY() - enemy.getSizeYenemy()){
             return true;
         }
         return false;
@@ -109,6 +109,7 @@ public class gameMovement {
                 }
             }
         });
+
         movementThread.start();
     }
 
